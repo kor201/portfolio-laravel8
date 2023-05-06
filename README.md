@@ -1,5 +1,7 @@
 # laravel8手順
-### コンテナ立ち上げ
+### docker キャッシュ削除
+docker builder prune
+### docker コンテナ立ち上げ
 docker compose up -d --build
 ### node + vueインストール
 docker compose exec laravel npm install -save-dev vue@next
@@ -7,7 +9,6 @@ docker compose exec laravel npm install -save-dev vue@next
 docker compose exec laravel npm install && npm run dev
 ### node反映
 docker compose exec laravel npm npm run dev
-
 ### webサーバlog取得
 docker-compose logs nginx
 
