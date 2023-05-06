@@ -21,21 +21,24 @@ services:
     build: ./docker/laravel
     working_dir: /var/www/portfolio-laravel8
     ports:
+      - "3000:3000"
       - "5173:5173"
     volumes:
       - ./docker/laravel/src/php.ini:/usr/local/etc/php/php.ini
       - ./docker/laravel/src/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
       - .:/var/www/portfolio-laravel8:cached
 
-  node:
-    image: node:20
-    working_dir: /var/www/portfolio-laravel8
-    ports:
-      - "3001:3001"
-      - "3002:3002"
-    volumes:
-      - .:/var/www/portfolio-laravel8:cached
-    command: npm help
+  # node:
+  #   image: node:20
+  #   working_dir: /var/www/portfolio-laravel8
+  #   ports:
+  #     - "3001:3001"
+  #     - "3002:3002"
+  #   volumes:
+  #     - .:/var/www/portfolio-laravel8:cached
+  #   command: npm help
+  #   environment:
+  #     MIX_APP_ENV: local
 
   redis:
     image: "redis:latest"

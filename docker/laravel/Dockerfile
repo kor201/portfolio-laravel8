@@ -1,5 +1,6 @@
 FROM php:8.1-fpm
-EXPOSE 5173
+# npm
+EXPOSE 3000
 RUN apt-get update \
   && apt-get install -y libzip-dev unzip  wget git unzip libicu-dev libmemcached-dev zlib1g-dev libmagickwand-dev \
   && docker-php-ext-install zip pdo_mysql sockets opcache intl  \
